@@ -140,18 +140,19 @@ if __name__ == "__main__":
 
     app = ApplicationBuilder().token(TOKEN).build()
 
-    # NEW
+    # --- COMMAND HANDLERS ---
     app.add_handler(CommandHandler("start", start_command))
-
     app.add_handler(CommandHandler("boshlamoq", boshlamoq_command))
     app.add_handler(CommandHandler("asosiy_darsga_qatnashdim", asosiy_darsga_qatnashdim_command))
     app.add_handler(CommandHandler("asosiy_dars_topshirdim", asosiy_dars_topshirdim_command))
     app.add_handler(CommandHandler("konspekt_qildim", konspekt_qildim_command))
     app.add_handler(CommandHandler("boshqa_savolim_bor", boshqa_savolim_bor_command))
 
-    app.add_handler(MessageHandler(filters.TEXT, handle_message))
+    # --- MESSAGE HANDLER ---
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
+    # --- ERROR HANDLER ---
     app.add_error_handler(error)
 
     print("Polling...")
-    app.run_polling(poll_interval=3)
+    app.run_polling()
