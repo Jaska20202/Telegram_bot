@@ -1,6 +1,6 @@
 services:
   - type: worker
     name: telegram-bot
-    runtime: python3.12
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python main.py"
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: 
