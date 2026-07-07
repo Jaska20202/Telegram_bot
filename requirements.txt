@@ -1,4 +1,4 @@
-python-telegram-bot==20.x
+ython-telegram-bot>=21.11
 pandas
 openpyxl
 requests
