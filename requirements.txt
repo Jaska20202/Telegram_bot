@@ -1,3 +1,4 @@
-python-telegram-bot==20.3
-httpx~=0.24.0
-httpcore>=0.15.0,<0.18.0
+python-telegram-bot==21.11
+pandas
+openpyxl
+requests
